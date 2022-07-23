@@ -51,26 +51,26 @@ const Home = () => {
     <div className='w-full min-h-[calc(100vh-55px)] bg-slate-300'> 
         
         <div className='w-full  whitespace-nowrap py-1 overflow-x-scroll md:overflow-hidden  md:flex md:justify-center md:items-center'>  
-        <button className='py-1 px-6 text-xs font-semibold   bg-slate-200 mx-3'  onClick={loadAllProducts}>All</button>
+        <button className='py-1 px-6 md:px-10 text-xs font-semibold   bg-slate-200 mx-3 md:mx-6'  onClick={loadAllProducts}>All</button>
                 
             { 
                 categories && categories.map((category,index)=>(
-                <button className='py-1 px-6 text-xs font-semibold   bg-slate-200 mx-3' key={index} onClick={()=>loadProductByCategory(category)}>{category}</button>
+                <button className='py-1 px-6 md:px-10 text-xs font-semibold   bg-slate-200 mx-3 md:mx-6' key={index} onClick={()=>loadProductByCategory(category)}>{category}</button>
                 ))
             }
         </div>
         <div className='w-full flex justify-center items-center pt-4 px-3'>
-            <input type="search" name="search" value={search} placeholder='Search Products' className='w-full md:w-[50%] py-1 px-1 focus:outline-blue-300' onChange={(e)=>setSearch(e.target.value)} />
+            <input type="search" name="search" value={search} placeholder='Search Products' className='w-full md:w-[70%] py-1 px-1 focus:outline-blue-300' onChange={(e)=>setSearch(e.target.value)} />
         </div>
 
         <div className='w-full  my-3 whitespace-nowrap overflow-x-auto py-1 md:overflow-hidden  md:flex md:justify-center md:items-center'>
-            <button className='py-1 px-4 rounded-md  border-2 border-slate-50 text-xs mx-2' onClick={()=>loadProductByPrice(0,50)}>0-50</button>
-            <button className='py-1 px-4 rounded-md  border-2 border-slate-50 text-xs mx-2' onClick={()=>loadProductByPrice(51,100)}>51-100</button>
-            <button className='py-1 px-4 rounded-md  border-2 border-slate-50 text-xs mx-2' onClick={()=>loadProductByPrice(101,150)}>101-150</button>
-            <button className='py-1 px-4 rounded-md  border-2 border-slate-50 text-xs mx-2' onClick={()=>loadProductByPrice(151,200)}>151-200</button>
-            <button className='py-1 px-4 rounded-md  border-2 border-slate-50 text-xs mx-2' onClick={()=>loadProductByPrice(201,250)}>201-250</button>
-            <button className='py-1 px-4 rounded-md  border-2 border-slate-50 text-xs mx-2' onClick={()=>loadProductByPrice(251,500)}>251-500</button>
-            <button className='py-1 px-4 rounded-md  border-2 border-slate-50 text-xs mx-2' onClick={()=>loadProductByPrice(501,1000)}>501-1000</button>
+            <button className='py-1 px-4 rounded-md  border-2 border-slate-50 text-xs mx-2 md:mx-6 md:px-10' onClick={()=>loadProductByPrice(0,50)}>0-50</button>
+            <button className='py-1 px-4 rounded-md  border-2 border-slate-50 text-xs mx-2 md:mx-6 md:px-10' onClick={()=>loadProductByPrice(51,100)}>51-100</button>
+            <button className='py-1 px-4 rounded-md  border-2 border-slate-50 text-xs mx-2 md:mx-6 md:px-10' onClick={()=>loadProductByPrice(101,150)}>101-150</button>
+            <button className='py-1 px-4 rounded-md  border-2 border-slate-50 text-xs mx-2 md:mx-6 md:px-10' onClick={()=>loadProductByPrice(151,200)}>151-200</button>
+            <button className='py-1 px-4 rounded-md  border-2 border-slate-50 text-xs mx-2 md:mx-6 md:px-10' onClick={()=>loadProductByPrice(201,250)}>201-250</button>
+            <button className='py-1 px-4 rounded-md  border-2 border-slate-50 text-xs mx-2 md:mx-6 md:px-10' onClick={()=>loadProductByPrice(251,500)}>251-500</button>
+            <button className='py-1 px-4 rounded-md  border-2 border-slate-50 text-xs mx-2 md:mx-6 md:px-10' onClick={()=>loadProductByPrice(501,1000)}>501-1000</button>
         </div>
             {
                 products.length < 1 && <div className='w-full bg-slate-800 flex justify-center items-center py-3'><span className=' font-semibold text-center text-slate-50'>No Product(s) Found</span></div>
