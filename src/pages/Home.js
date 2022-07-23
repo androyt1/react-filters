@@ -50,7 +50,7 @@ const Home = () => {
   return (
     <div className='w-full min-h-[calc(100vh-55px)] bg-slate-300'> 
         
-        <div className='w-full  whitespace-nowrap overflow-x-scroll py-2'>  
+        <div className='w-full  whitespace-nowrap py-1 overflow-x-scroll md:overflow-hidden  md:flex md:justify-center md:items-center'>  
         <button className='py-1 px-6 text-xs font-semibold   bg-slate-200 mx-3'  onClick={loadAllProducts}>All</button>
                 
             { 
@@ -63,7 +63,7 @@ const Home = () => {
             <input type="search" name="search" value={search} placeholder='Search Products' className='w-full md:w-[50%] py-1 px-1 focus:outline-blue-300' onChange={(e)=>setSearch(e.target.value)} />
         </div>
 
-        <div className='w-full  my-3 whitespace-nowrap overflow-x-auto py-1'>
+        <div className='w-full  my-3 whitespace-nowrap overflow-x-auto py-1 md:overflow-hidden  md:flex md:justify-center md:items-center'>
             <button className='py-1 px-4 rounded-md  border-2 border-slate-50 text-xs mx-2' onClick={()=>loadProductByPrice(0,50)}>0-50</button>
             <button className='py-1 px-4 rounded-md  border-2 border-slate-50 text-xs mx-2' onClick={()=>loadProductByPrice(51,100)}>51-100</button>
             <button className='py-1 px-4 rounded-md  border-2 border-slate-50 text-xs mx-2' onClick={()=>loadProductByPrice(101,150)}>101-150</button>
