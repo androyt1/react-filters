@@ -1,12 +1,28 @@
 import {useEffect,useState,useCallback} from 'react'
 import { getProducts,getCategories} from '../util/api'
+import ProductDetailsModal from '../components/ProductDetailsModal'
 
 const Home = () => {
 
+    const[open,close]=useState(false)
     const[products,setProducts]=useState([])
     const[results,setResults]=useState([])
     const[categories,setCategories]=useState([])
     const[search,setSearch]=useState('')
+    const[oneProduct,setOneProduct]=useState({})
+
+    // const handleOpen=()=>{
+    //     close(open=>!open)
+    // }
+
+    const closeModal=()=>{
+        close(false)
+    } 
+
+    const openDetailsModal=(item)=>{
+        close(true)
+        setOneProduct(item)
+    }
 
     useEffect(()=>{
         getProducts()
@@ -48,8 +64,8 @@ const Home = () => {
    
 
   return (
-    <div className='w-full min-h-[calc(100vh-55px)] bg-[#000080]'> 
-        
+    <div className='w-full min-h-[calc(100vh-55px)] bg-[#000080] relative'> 
+        <ProductDetailsModal close={closeModal} open={open} product={oneProduct} />
         <div className='w-full  whitespace-nowrap py-1 overflow-x-scroll md:overflow-hidden  md:flex md:justify-center md:items-center'>  
         <button className='py-1 px-6 md:px-10 text-xs font-semibold   bg-[#000080] text-white border-[1px] border-white mx-3 md:mx-6'  onClick={loadAllProducts}>All</button>
                 
@@ -80,7 +96,7 @@ const Home = () => {
                 products && products.map(product=>(
                 <div key={product.id} className='w-full shadow-md shadow-slate-900 p-2 bg-white flex flex-col justify-center items-center'>
                     <span className='block font-semibold text-sm text-center'>{product.title.substring(0,14)}...</span>
-                    <img src={product.image} alt={product.title} className='h-[150px] object-cover' />
+                    <img src={product.image} alt={product.title} className='h-[150px] object-cover cursor-pointer' onClick={()=>openDetailsModal(product)}/>
                     <span className='text-xs font-semibold border-2 border-[#000080] py-1 px-1 mt-1'>${product.price}</span>
                 </div>
                 ))
