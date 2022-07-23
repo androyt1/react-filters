@@ -48,14 +48,14 @@ const Home = () => {
    
 
   return (
-    <div className='w-full min-h-[calc(100vh-55px)] bg-slate-300'> 
+    <div className='w-full min-h-[calc(100vh-55px)] bg-[#000080]'> 
         
         <div className='w-full  whitespace-nowrap py-1 overflow-x-scroll md:overflow-hidden  md:flex md:justify-center md:items-center'>  
-        <button className='py-1 px-6 md:px-10 text-xs font-semibold   bg-slate-200 mx-3 md:mx-6'  onClick={loadAllProducts}>All</button>
+        <button className='py-1 px-6 md:px-10 text-xs font-semibold   bg-[#000080] text-white border-[1px] border-white mx-3 md:mx-6'  onClick={loadAllProducts}>All</button>
                 
             { 
                 categories && categories.map((category,index)=>(
-                <button className='py-1 px-6 md:px-10 text-xs font-semibold   bg-slate-200 mx-3 md:mx-6' key={index} onClick={()=>loadProductByCategory(category)}>{category}</button>
+                <button className='py-1 px-6 md:px-10 text-xs font-semibold   bg-[#000080] text-white border-[1px] border-white mx-3 md:mx-6' key={index} onClick={()=>loadProductByCategory(category)}>{category}</button>
                 ))
             }
         </div>
@@ -64,13 +64,13 @@ const Home = () => {
         </div>
 
         <div className='w-full  my-3 whitespace-nowrap overflow-x-auto py-1 md:overflow-hidden  md:flex md:justify-center md:items-center'>
-            <button className='py-1 px-4 rounded-md  border-2 border-slate-50 text-xs mx-2 md:mx-6 md:px-10' onClick={()=>loadProductByPrice(0,50)}>0-50</button>
-            <button className='py-1 px-4 rounded-md  border-2 border-slate-50 text-xs mx-2 md:mx-6 md:px-10' onClick={()=>loadProductByPrice(51,100)}>51-100</button>
-            <button className='py-1 px-4 rounded-md  border-2 border-slate-50 text-xs mx-2 md:mx-6 md:px-10' onClick={()=>loadProductByPrice(101,150)}>101-150</button>
-            <button className='py-1 px-4 rounded-md  border-2 border-slate-50 text-xs mx-2 md:mx-6 md:px-10' onClick={()=>loadProductByPrice(151,200)}>151-200</button>
-            <button className='py-1 px-4 rounded-md  border-2 border-slate-50 text-xs mx-2 md:mx-6 md:px-10' onClick={()=>loadProductByPrice(201,250)}>201-250</button>
-            <button className='py-1 px-4 rounded-md  border-2 border-slate-50 text-xs mx-2 md:mx-6 md:px-10' onClick={()=>loadProductByPrice(251,500)}>251-500</button>
-            <button className='py-1 px-4 rounded-md  border-2 border-slate-50 text-xs mx-2 md:mx-6 md:px-10' onClick={()=>loadProductByPrice(501,1000)}>501-1000</button>
+            <button className='py-1 px-4 rounded-md  border-2 border-slate-50 text-xs mx-2 md:mx-6 md:px-10 text-white' onClick={()=>loadProductByPrice(0,50)}>0-50</button>
+            <button className='py-1 px-4 rounded-md  border-2 border-slate-50 text-xs mx-2 md:mx-6 md:px-10 text-white' onClick={()=>loadProductByPrice(51,100)}>51-100</button>
+            <button className='py-1 px-4 rounded-md  border-2 border-slate-50 text-xs mx-2 md:mx-6 md:px-10 text-white' onClick={()=>loadProductByPrice(101,150)}>101-150</button>
+            <button className='py-1 px-4 rounded-md  border-2 border-slate-50 text-xs mx-2 md:mx-6 md:px-10 text-white' onClick={()=>loadProductByPrice(151,200)}>151-200</button>
+            <button className='py-1 px-4 rounded-md  border-2 border-slate-50 text-xs mx-2 md:mx-6 md:px-10 text-white' onClick={()=>loadProductByPrice(201,250)}>201-250</button>
+            <button className='py-1 px-4 rounded-md  border-2 border-slate-50 text-xs mx-2 md:mx-6 md:px-10 text-white' onClick={()=>loadProductByPrice(251,500)}>251-500</button>
+            <button className='py-1 px-4 rounded-md  border-2 border-slate-50 text-xs mx-2 md:mx-6 md:px-10 text-white' onClick={()=>loadProductByPrice(501,1000)}>501-1000</button>
         </div>
             {
                 products.length < 1 && <div className='w-full bg-slate-800 flex justify-center items-center py-3'><span className=' font-semibold text-center text-slate-50'>No Product(s) Found</span></div>
@@ -79,9 +79,9 @@ const Home = () => {
             {
                 products && products.map(product=>(
                 <div key={product.id} className='w-full shadow-md shadow-slate-900 p-2 bg-white flex flex-col justify-center items-center'>
-                    <span className='block font-semibold text-md'>{product.title.substring(0,20)}</span>
+                    <span className='block font-semibold text-sm text-center'>{product.title.substring(0,14)}...</span>
                     <img src={product.image} alt={product.title} className='h-[150px] object-cover' />
-                    <span className='text-xs font-semibold border-2 border-slate-300 py-1 px-1 mt-1'>${product.price}</span>
+                    <span className='text-xs font-semibold border-2 border-[#000080] py-1 px-1 mt-1'>${product.price}</span>
                 </div>
                 ))
             }
